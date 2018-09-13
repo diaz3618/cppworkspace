@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1536687639 source:/home/diaz/cppworkspace/Search/main.cpp
+	<iostream>
+	<cstring>
+
