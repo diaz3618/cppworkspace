@@ -45,16 +45,37 @@ void hash::Add_Item(std::string name, std::string drink)
 	else
 	{
 		item *Ptr = Hash_Table[index];
-		item *_new = new item;
+		item *n = new item;
 
-		_new->name = name;
-		_new->drink = drink;
-		_new->next = NULL;
+		n->name = name;
+		n->drink = drink;
+		n->next = NULL;
 
 		while (Ptr->next != NULL)
 		{
 			Ptr = Ptr->next;
 		}
-		Ptr->next = _new;
+		Ptr->next = n;
+	}
+}
+
+int hash::Items_In_Index(int index)
+{
+	int count = 0;
+
+	if (Hash_Table[index]->name == "empty")
+	{
+		return count;
+	}
+	else
+	{
+		count++;
+		item *Ptr = Hash_Table[index];
+		
+		while (Ptr->next != NULL)
+		{
+			count++;
+			Ptr = Ptr->next;
+		}
 	}
 }

@@ -24,6 +24,7 @@ public:
 	hash();
 	int Hash(std::string key);
 	void Add_Item(std::string name, std::string drink);
+	int Items_In_Index(int index);
 };
 
 #endif // !HASH_H
