@@ -6,13 +6,13 @@ unless one is specifically needed here.
 
 hash::hash()
 {
+	// Initialize
 	for (int i = 0; i < table_size; i++)
 	{
 		Hash_Table[i] = new item;
-		Hash_Table[i] -> name	= "empty";
-		Hash_Table[i] -> drink	= "empty";
-		Hash_Table[i] -> next	= NULL;
-
+		Hash_Table[i]->name		= "empty";
+		Hash_Table[i]->drink	= "empty";
+		Hash_Table[i]->next		= NULL;
 	}
 }
 

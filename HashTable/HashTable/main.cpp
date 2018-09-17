@@ -1,3 +1,6 @@
+// Tutorial by Paul Programming
+// https://www.youtube.com/channel/UCcDGsN3JxMavDkM9INRLGFA
+
 #include "hash.h"
 
 int main(int argc, char *argv)
