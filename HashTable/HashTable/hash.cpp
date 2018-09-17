@@ -20,20 +20,17 @@ int hash::Hash(std::string key)
 {
 	int hash = 0;
 	int index;
-
+	
 	for (int i = 0; i < key.length(); i++)
 	{
 		hash += (int)key[i];
-		std::cout << "key[" << i << "] = " << (int)key[i] << std::endl;
 	}
-
-	std::cout << "\n\nTotal index sum (hash variable): " << hash << std::endl;
 
 	index = hash % table_size;
 	return index;
 }
 
-void hash::Add_Item(std::string name, std::string drink)
+void hash::add_item(std::string name, std::string drink)
 {
 	int index = Hash(name);
 
@@ -59,7 +56,7 @@ void hash::Add_Item(std::string name, std::string drink)
 	}
 }
 
-int hash::Items_In_Index(int index)
+int hash::items_in_index(int index)
 {
 	int count = 0;
 
@@ -75,6 +72,47 @@ int hash::Items_In_Index(int index)
 		while (Ptr->next != NULL)
 		{
 			count++;
+			Ptr = Ptr->next;
+		}
+	}
+	return count;
+}
+
+void hash::print_table()
+{
+	int num;
+
+	for (int i = 0; i < table_size; i++)
+	{
+		num = items_in_index(i);
+		std::cout << "-------------------\n";
+		std::cout << "Index: " << i << std::endl;
+		std::cout << Hash_Table[i]->name << std::endl;
+		std::cout << Hash_Table[i]->drink << std::endl;
+		std::cout << "Number of items: " << num << std::endl;
+		std::cout << "-------------------\n\n";
+	}
+}
+
+void hash::print_items_in_index(int index)
+{
+	item *Ptr = Hash_Table[index];
+
+	if (Ptr->name == "empty")
+	{
+		std::cout << "Index [" << index << "]: " << "= empty" << std::endl;
+	}
+	else
+	{
+		std::cout << "Index [" << index << "]: " << std::endl;
+
+		while (Ptr != NULL)
+		{
+			std::cout << "-------------------\n";
+			std::cout << Ptr->name << std::endl;
+			std::cout << Ptr->drink << std::endl;
+			std::cout << "-------------------\n";
+
 			Ptr = Ptr->next;
 		}
 	}

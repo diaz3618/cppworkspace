@@ -23,8 +23,10 @@ private:
 public:
 	hash();
 	int Hash(std::string key);
-	void Add_Item(std::string name, std::string drink);
-	int Items_In_Index(int index);
+	void add_item(std::string name, std::string drink);
+	int items_in_index(int index);
+	void print_table();
+	void print_items_in_index(int index);
 };
 
 #endif // !HASH_H
