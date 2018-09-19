@@ -22,7 +22,7 @@ public:
     int _hash(std::string name);
     void add(std::string name, int age);
     bool isempty(int index);
-    void _find(std::string name);
+    int _find(std::string name);
 };
 
 // Constructor/Initialize
@@ -44,7 +44,7 @@ void Chain::print_table(int index)
 
     while(ptr != NULL)
     {
-        std::cout << "[" << index << "]\t" << ptr->name << ", age: " << ptr->age << std::endl;
+        std::cout << "[" << index << "]\t" << ptr->name << "\t| age: " << ptr->age << std::endl;
         ptr = ptr->next;
         i++;
     }
@@ -97,20 +97,29 @@ bool Chain::isempty(int index)
     { return false; }
 }
 
-void Chain::_find(std::string name)
+int Chain::_find(std::string name)
 {
+    /*
+    Since I'm having trouble with collisions,
+    this function assumes there's only one string
+    in x index (for now). Once the collision problem
+    is solved, this function will take O(n) [it is
+    currently O(1)].
+    */
+
     int index = _hash(name);
 
     if(isempty(index) == true)
     {
         std::cout << "index [" << index << "] is empty";
     }
-    else
+    else if(hash_table[index]->name == name)
     {
-        if(hash_table[index]->name == name)
-        {
-            std::cout << "String: " << name << "\tfound in index [" << index << "]";
-        }
+        // Cout for testing
+        std::cout << "String: " << name << "\tfound in index [" << index << "]";
+
+        // Return index where entered string was found
+        return index;
     }
 }
 
@@ -118,6 +127,7 @@ int main()
 {
     Chain chain;
 
+    // Add random data to test add function
     chain.add("Daniel", 26);
     chain.add("Dan", 26);
     chain.add("Jomarie" , 25);
@@ -128,9 +138,13 @@ int main()
         chain.print_table(i);
     }
 
+    // Testing find function
     std::cout << "\n\n";
     chain._find("Dan");
     std::cout << "\n\n";
+
+    // Print x index
+    chain.print_table(0);
 
     return 0;
 }
