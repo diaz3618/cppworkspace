@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1537020614 source:/home/diaz/cppworkspace/Linked_list/Main.cpp
+	<iostream>
+	"nodes.h"
+
+1537020070 /home/diaz/cppworkspace/Linked_list/nodes.h
+
