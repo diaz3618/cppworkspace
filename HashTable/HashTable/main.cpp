@@ -20,7 +20,7 @@ int main(int argc, char *argv)
 	Hash.add_item("Joe", "Beer");
 
 	// Print hash table
-	//Hash.print_table();
+	Hash.print_table();
 
 	Hash.print_items_in_index(2);
 

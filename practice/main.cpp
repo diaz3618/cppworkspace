@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-//using namespace std;
+#include <list>
+void test();
 
 class Chain
 {
@@ -67,7 +68,7 @@ void Chain::add(std::string name, int age)
     int index = _hash(name);
 
     // Create head link
-    if(hash_table[index]->name == "empty")
+    if(isempty(index) == true)
     {
         hash_table[index]->name = name;
         hash_table[index]->age = age;
@@ -93,6 +94,7 @@ bool Chain::isempty(int index)
 {
     if(hash_table[index]->name == "empty")
     { return true; }
+
     else
     { return false; }
 }
@@ -146,5 +148,50 @@ int main()
     // Print x index
     chain.print_table(0);
 
+    test();
+
     return 0;
+}
+
+
+
+
+/* Irrelevant to the rest of this "project" */
+typedef struct Double_str
+    {
+        std::string str1;
+        std::string str2;
+        Double_str *next;
+    } double_str;
+
+    double_str *T[10];
+
+void _add(int index, std::string str)
+{
+    double_str *s1, *s2;
+
+    s1->str1 = str;
+    s1->str2 = str;
+    s1->next = NULL;
+
+    if(T[index] == NULL)
+    {
+        T[index] = s1;
+    }
+
+    else
+    {
+        for (s2 = T[index]; s2->next != NULL; s2 = s2->next)
+        {
+            s2->next = s1;
+        }
+    }
+}
+void test()
+{
+    for (int i = 0; i < 10; i++)
+    {
+        _add(i, "empty");
+        //std::cout << T[i] << std::endl;
+    }
 }

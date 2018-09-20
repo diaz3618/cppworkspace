@@ -117,3 +117,12 @@ void hash::print_items_in_index(int index)
 		}
 	}
 }
+
+bool hash::isempty(int index)
+{
+	if (Hash_Table[index]->name == "empty")
+	{ return true; }
+
+	else
+	{ return false; }
+}
