@@ -27,6 +27,7 @@ public:
 	int items_in_index(int index);
 	void print_table();
 	void print_items_in_index(int index);
+	bool isempty(int index);
 };
 
 #endif // !HASH_H
