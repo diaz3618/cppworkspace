@@ -5,6 +5,12 @@
 #include <QPdfWriter>
 #include <QPrinter>
 #include <QPainter>
+#include <QtCore>
+#include <QtGui>
+#include <QApplication>
+#include <QPrintDialog>
+#include <QFileDialog>
+#define FILENAME "tag.pdf"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,11 +25,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::print_file()
+void MainWindow::create_file()
 {
-    QPdfWriter pdf_file("temp_file.pdf");
-    //QPainter painter(&pdf_file);
-
     customer = ui->customer_input->toPlainText();
     po = ui->po_input->toPlainText();
     pickup_date = ui->pickup_input->toPlainText();
@@ -32,7 +35,7 @@ void MainWindow::print_file()
 
     /*============================================================================*/
 
-    QPdfWriter writer("temp.pdf");
+    QPdfWriter writer(FILENAME);
     writer.setPageSize(QPagedPaintDevice::A4);
     writer.setPageOrientation(QPageLayout::Landscape);
     writer.setPageMargins(QMargins(30, 30, 30, 30));
@@ -51,5 +54,28 @@ void MainWindow::print_file()
     painter.drawText(r, Qt::AlignCenter, pickup_date);
     */
     painter.end();
+}
+
+void MainWindow::print_file()
+{
+    // Work in progress (printing damn file turned out to be a bit of a challenge.
+    create_file();
+
+    QPrinter printer(QPrinter::HighResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setOutputFileName(FILENAME);
+    printer.setPageOrientation(QPageLayout::Landscape);
+    QPrintDialog dlg(&printer, this);
+    dlg.setWindowTitle("Print");
+
+    if (dlg.exec() == QDialog::Accepted)
+    {
+        QWidget* widget = new QWidget(this); // this widget is your pdf widget
+        QPixmap printPixmap(widget->width(),widget->height());
+        widget->render(&printPixmap,QPoint(),QRegion(0,0,widget->width(),widget->height()));
+        QPainter painterPixmap(&printer);
+        painterPixmap.scale(4,4);
+        painterPixmap.drawPixmap(printer.pageRect().topLeft(), printPixmap, printPixmap.rect());
+    }
 }
 
