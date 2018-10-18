@@ -21,7 +21,7 @@ private:
 
     QString customer;
     QString po;
-    QString pickup_date;
+    QString received_date;
 
 public slots:
     void print_file();

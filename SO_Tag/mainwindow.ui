@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>391</width>
-    <height>220</height>
+    <height>194</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,7 +19,7 @@
   <property name="minimumSize">
    <size>
     <width>391</width>
-    <height>220</height>
+    <height>180</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -32,7 +32,7 @@
    <string>SO Tag</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
@@ -43,18 +43,23 @@
        </widget>
       </item>
       <item>
-       <widget class="QPlainTextEdit" name="customer_input">
-        <property name="inputMethodHints">
-         <set>Qt::ImhNone</set>
+       <widget class="QLineEdit" name="name_input">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
         </property>
-        <property name="verticalScrollBarPolicy">
-         <enum>Qt::ScrollBarAlwaysOff</enum>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
-        <property name="horizontalScrollBarPolicy">
-         <enum>Qt::ScrollBarAlwaysOff</enum>
+        <property name="maxLength">
+         <number>20</number>
         </property>
-        <property name="tabChangesFocus">
-         <bool>true</bool>
+        <property name="clearButtonEnabled">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -66,41 +71,64 @@
        </widget>
       </item>
       <item>
-       <widget class="QPlainTextEdit" name="po_input">
-        <property name="inputMethodHints">
-         <set>Qt::ImhDigitsOnly|Qt::ImhPreferNumbers</set>
+       <widget class="QLineEdit" name="po_input">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
         </property>
-        <property name="verticalScrollBarPolicy">
-         <enum>Qt::ScrollBarAlwaysOff</enum>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
-        <property name="horizontalScrollBarPolicy">
-         <enum>Qt::ScrollBarAlwaysOff</enum>
-        </property>
-        <property name="tabChangesFocus">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Pick-up date</string>
+        <property name="maxLength">
+         <number>10</number>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPlainTextEdit" name="pickup_input">
-        <property name="inputMethodHints">
-         <set>Qt::ImhNone</set>
+       <widget class="QSplitter" name="splitter">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
-        <property name="verticalScrollBarPolicy">
-         <enum>Qt::ScrollBarAlwaysOff</enum>
+        <widget class="QLabel" name="label_3">
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Date received</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="checkBox">
+         <property name="text">
+          <string>Today</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="date_input">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
         </property>
-        <property name="horizontalScrollBarPolicy">
-         <enum>Qt::ScrollBarAlwaysOff</enum>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
-        <property name="tabChangesFocus">
-         <bool>true</bool>
+        <property name="cursor">
+         <cursorShape>IBeamCursor</cursorShape>
+        </property>
+        <property name="maxLength">
+         <number>10</number>
         </property>
        </widget>
       </item>
@@ -121,6 +149,12 @@
         </item>
         <item>
          <widget class="QPushButton" name="print_button">
+          <property name="minimumSize">
+           <size>
+            <width>90</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="text">
            <string>Print</string>
           </property>
@@ -148,5 +182,22 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>date_input</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>144</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>107</x>
+     <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

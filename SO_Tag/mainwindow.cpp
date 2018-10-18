@@ -1,15 +1,18 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
+#include <Windows.h>
+#include <WinBase.h>
 #include <iomanip>
+#include <stdlib.h>
+#include <iostream>
+
 #include <QtDebug>
 #include <QPdfWriter>
 #include <QPrinter>
 #include <QPainter>
-#include <QtCore>
-#include <QtGui>
-#include <QApplication>
-#include <QPrintDialog>
-#include <QFileDialog>
+#include <ctime>
+
 #define FILENAME "tag.pdf"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -25,13 +28,39 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+// Outputs today's date
+QString today()
+{
+  time_t rawtime;
+  struct tm * timeinfo;
+  char buffer[80];
+
+  time (&rawtime);
+  timeinfo = localtime(&rawtime);
+
+  strftime(buffer,sizeof(buffer),"%m/%d/%Y",timeinfo);
+  QString str(buffer);
+
+  return str;
+}
+
+// Creates PDF File (special order tag)
 void MainWindow::create_file()
 {
-    customer = ui->customer_input->toPlainText();
-    po = ui->po_input->toPlainText();
-    pickup_date = ui->pickup_input->toPlainText();
 
-    qDebug() << customer.toUpper() << "\n" << po << "\n" << pickup_date;
+    customer = ui->name_input->text();
+    po = ui->po_input->text();
+
+    if(ui->checkBox->isChecked())
+    {
+        received_date = today();
+    }
+    else
+    {
+        received_date = ui->date_input->text();
+    }
+
+    qDebug() << customer.toUpper() << "\n" << po << "\n" << received_date;
 
     /*============================================================================*/
 
@@ -42,40 +71,36 @@ void MainWindow::create_file()
 
     QPainter painter(&writer);
     painter.setPen(Qt::black);
-    painter.setFont(QFont("Calibri", 100));
+    painter.setFont(QFont("Calibri", 110));
 
     QRect r = painter.viewport();
 
-    QString tag = customer.toUpper()+"\n"+po+"\n"+pickup_date;
+    QString tag = customer.toUpper()+"\n"+po+"\n"+received_date;
     painter.drawText(r, Qt::AlignCenter, tag);
-    /*
-    painter.drawText(r, Qt::AlignCenter, customer.toUpper());
-    painter.drawText(r, Qt::AlignCenter, po);
-    painter.drawText(r, Qt::AlignCenter, pickup_date);
-    */
+
     painter.end();
 }
 
+/*
+ * Sends PDF to default printer.
+ * I haven't figured out how to write something
+ * that prints the PDF (print to printer). This
+ * "method" is temporary (hopefully).
+*/
+void Print()
+{
+    std::string file = FILENAME;
+    std::string cmd = "printer.exe " + file;
+
+    WinExec(cmd.c_str(), SW_HIDE);
+    //system(cmd.c_str());
+}
+
+
+// Creates and prints file
 void MainWindow::print_file()
 {
-    // Work in progress (printing damn file turned out to be a bit of a challenge.
     create_file();
-
-    QPrinter printer(QPrinter::HighResolution);
-    printer.setOutputFormat(QPrinter::PdfFormat);
-    printer.setOutputFileName(FILENAME);
-    printer.setPageOrientation(QPageLayout::Landscape);
-    QPrintDialog dlg(&printer, this);
-    dlg.setWindowTitle("Print");
-
-    if (dlg.exec() == QDialog::Accepted)
-    {
-        QWidget* widget = new QWidget(this); // this widget is your pdf widget
-        QPixmap printPixmap(widget->width(),widget->height());
-        widget->render(&printPixmap,QPoint(),QRegion(0,0,widget->width(),widget->height()));
-        QPainter painterPixmap(&printer);
-        painterPixmap.scale(4,4);
-        painterPixmap.drawPixmap(printer.pageRect().topLeft(), printPixmap, printPixmap.rect());
-    }
+    Print();
 }
 
