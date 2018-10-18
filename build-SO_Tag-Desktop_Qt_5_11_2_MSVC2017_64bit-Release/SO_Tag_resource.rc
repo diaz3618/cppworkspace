@@ -1,6 +1,6 @@
 #include <windows.h>
 
-IDI_ICON1	ICON	DISCARDABLE	"C:\\Users\\Daniel\\cppworkspace\\SO_Tag\\icon.ico"
+IDI_ICON1	ICON	DISCARDABLE	"C:\\Users\\Daniel\\Desktop\\tmp\\SO_Tag\\icon.ico"
 
 VS_VERSION_INFO VERSIONINFO
 	FILEVERSION 0,0,0,0

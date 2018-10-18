@@ -12,13 +12,13 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QSplitter>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -28,16 +28,16 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_2;
     QLineEdit *name_input;
     QLabel *label;
     QLineEdit *po_input;
-    QSplitter *splitter;
+    QHBoxLayout *horizontalLayout_2;
     QLabel *label_3;
     QCheckBox *checkBox;
-    QLineEdit *date_input;
+    QDateEdit *date_input;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer;
     QPushButton *print_button;
@@ -47,20 +47,20 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(391, 194);
+        MainWindow->resize(390, 201);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
         MainWindow->setSizePolicy(sizePolicy);
-        MainWindow->setMinimumSize(QSize(391, 180));
-        MainWindow->setMaximumSize(QSize(391, 220));
+        MainWindow->setMinimumSize(QSize(390, 194));
+        MainWindow->setMaximumSize(QSize(391, 201));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        verticalLayout = new QVBoxLayout(centralWidget);
-        verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        horizontalLayout_3 = new QHBoxLayout(centralWidget);
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
@@ -93,25 +93,35 @@ public:
 
         verticalLayout_2->addWidget(po_input);
 
-        splitter = new QSplitter(centralWidget);
-        splitter->setObjectName(QStringLiteral("splitter"));
-        splitter->setOrientation(Qt::Horizontal);
-        label_3 = new QLabel(splitter);
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setMaximumSize(QSize(70, 16777215));
-        splitter->addWidget(label_3);
-        checkBox = new QCheckBox(splitter);
+
+        horizontalLayout_2->addWidget(label_3);
+
+        checkBox = new QCheckBox(centralWidget);
         checkBox->setObjectName(QStringLiteral("checkBox"));
-        splitter->addWidget(checkBox);
+        checkBox->setChecked(true);
 
-        verticalLayout_2->addWidget(splitter);
+        horizontalLayout_2->addWidget(checkBox);
 
-        date_input = new QLineEdit(centralWidget);
+
+        verticalLayout_2->addLayout(horizontalLayout_2);
+
+        date_input = new QDateEdit(centralWidget);
         date_input->setObjectName(QStringLiteral("date_input"));
+        date_input->setEnabled(false);
         date_input->setMinimumSize(QSize(0, 25));
-        date_input->setFont(font);
-        date_input->setCursor(QCursor(Qt::IBeamCursor));
-        date_input->setMaxLength(10);
+        QFont font1;
+        font1.setPointSize(10);
+        font1.setBold(false);
+        font1.setWeight(50);
+        font1.setStrikeOut(false);
+        date_input->setFont(font1);
+        date_input->setCursor(QCursor(Qt::ArrowCursor));
 
         verticalLayout_2->addWidget(date_input);
 
@@ -136,7 +146,7 @@ public:
         verticalLayout_2->addLayout(horizontalLayout);
 
 
-        verticalLayout->addLayout(verticalLayout_2);
+        horizontalLayout_3->addLayout(verticalLayout_2);
 
         MainWindow->setCentralWidget(centralWidget);
 
