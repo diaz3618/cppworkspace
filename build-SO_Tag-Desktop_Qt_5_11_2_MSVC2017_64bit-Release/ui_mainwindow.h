@@ -30,13 +30,13 @@ public:
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout_2;
-    QLabel *label_2;
+    QLabel *customer_label;
     QLineEdit *name_input;
-    QLabel *label;
+    QLabel *po_label;
     QLineEdit *po_input;
     QHBoxLayout *horizontalLayout_2;
-    QLabel *label_3;
-    QCheckBox *checkBox;
+    QLabel *date_label;
+    QCheckBox *today_checkBox;
     QDateEdit *date_input;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer;
@@ -64,10 +64,10 @@ public:
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        label_2 = new QLabel(centralWidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
+        customer_label = new QLabel(centralWidget);
+        customer_label->setObjectName(QStringLiteral("customer_label"));
 
-        verticalLayout_2->addWidget(label_2);
+        verticalLayout_2->addWidget(customer_label);
 
         name_input = new QLineEdit(centralWidget);
         name_input->setObjectName(QStringLiteral("name_input"));
@@ -80,10 +80,10 @@ public:
 
         verticalLayout_2->addWidget(name_input);
 
-        label = new QLabel(centralWidget);
-        label->setObjectName(QStringLiteral("label"));
+        po_label = new QLabel(centralWidget);
+        po_label->setObjectName(QStringLiteral("po_label"));
 
-        verticalLayout_2->addWidget(label);
+        verticalLayout_2->addWidget(po_label);
 
         po_input = new QLineEdit(centralWidget);
         po_input->setObjectName(QStringLiteral("po_input"));
@@ -96,17 +96,17 @@ public:
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        label_3 = new QLabel(centralWidget);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setMaximumSize(QSize(70, 16777215));
+        date_label = new QLabel(centralWidget);
+        date_label->setObjectName(QStringLiteral("date_label"));
+        date_label->setMaximumSize(QSize(70, 16777215));
 
-        horizontalLayout_2->addWidget(label_3);
+        horizontalLayout_2->addWidget(date_label);
 
-        checkBox = new QCheckBox(centralWidget);
-        checkBox->setObjectName(QStringLiteral("checkBox"));
-        checkBox->setChecked(true);
+        today_checkBox = new QCheckBox(centralWidget);
+        today_checkBox->setObjectName(QStringLiteral("today_checkBox"));
+        today_checkBox->setChecked(true);
 
-        horizontalLayout_2->addWidget(checkBox);
+        horizontalLayout_2->addWidget(today_checkBox);
 
 
         verticalLayout_2->addLayout(horizontalLayout_2);
@@ -122,6 +122,7 @@ public:
         font1.setStrikeOut(false);
         date_input->setFont(font1);
         date_input->setCursor(QCursor(Qt::ArrowCursor));
+        date_input->setCurrentSection(QDateTimeEdit::DaySection);
 
         verticalLayout_2->addWidget(date_input);
 
@@ -151,7 +152,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
-        QObject::connect(checkBox, SIGNAL(toggled(bool)), date_input, SLOT(setDisabled(bool)));
+        QObject::connect(today_checkBox, SIGNAL(toggled(bool)), date_input, SLOT(setDisabled(bool)));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -159,10 +160,10 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "SO Tag", nullptr));
-        label_2->setText(QApplication::translate("MainWindow", "Customer name", nullptr));
-        label->setText(QApplication::translate("MainWindow", "PO number", nullptr));
-        label_3->setText(QApplication::translate("MainWindow", "Date received", nullptr));
-        checkBox->setText(QApplication::translate("MainWindow", "Today", nullptr));
+        customer_label->setText(QApplication::translate("MainWindow", "Customer name", nullptr));
+        po_label->setText(QApplication::translate("MainWindow", "PO number", nullptr));
+        date_label->setText(QApplication::translate("MainWindow", "Date received", nullptr));
+        today_checkBox->setText(QApplication::translate("MainWindow", "Today", nullptr));
         print_button->setText(QApplication::translate("MainWindow", "Print", nullptr));
     } // retranslateUi
 
