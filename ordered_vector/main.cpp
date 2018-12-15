@@ -1,6 +1,9 @@
 /*
     If you took the time to read this,
     feel free to give some constructive criticism.
+
+    (keep in mind that this is just for practice,
+     not to be used for anything "useful")
 */
 
 #include <iostream>
