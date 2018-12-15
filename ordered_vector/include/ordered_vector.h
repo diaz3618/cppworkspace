@@ -5,7 +5,7 @@
 #include <initializer_list>
 
 template <class T>
-class ordered_vector {
+class ordered_vector : public std::vector<T> {
     public:
         ordered_vector();
         ordered_vector(T data);

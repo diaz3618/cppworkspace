@@ -1,5 +1,11 @@
+/*
+    If you took the time to read this,
+    feel free to give some constructive criticism.
+*/
+
 #include <iostream>
 #include "ordered_vector.h"
+
 
 int main(int argc, char **argv) {
     ordered_vector<int> sorted_vector = { 5, 1, 7, 9 };
