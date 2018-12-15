@@ -1,8 +1,0 @@
-﻿  main.cpp
-  ordered_vector.cpp
-  Generating Code...
-main.obj : error LNK2019: unresolved external symbol "public: __thiscall ordered_vector<int>::ordered_vector<int>(class std::initializer_list<int>)" (??0?$ordered_vector@H@@QAE@V?$initializer_list@H@std@@@Z) referenced in function _main
-main.obj : error LNK2019: unresolved external symbol "public: int __thiscall ordered_vector<int>::operator[](int)const " (??A?$ordered_vector@H@@QBEHH@Z) referenced in function _main
-main.obj : error LNK2019: unresolved external symbol "public: void __thiscall ordered_vector<int>::push(int)" (?push@?$ordered_vector@H@@QAEXH@Z) referenced in function _main
-main.obj : error LNK2019: unresolved external symbol "public: __thiscall ordered_vector<int>::~ordered_vector<int>(void)" (??1?$ordered_vector@H@@QAE@XZ) referenced in function _main
-C:\Users\Daniel\cppworkspace\ordered_vector\Debug\ordered_vector.exe : fatal error LNK1120: 4 unresolved externals
