@@ -8,11 +8,11 @@
 	<algorithm>
 	<initializer_list>
 
-1544850442 source:c:\users\daniel\cppworkspace\ordered_vector\main.cpp
+1544851193 source:c:\users\daniel\cppworkspace\ordered_vector\main.cpp
 	<iostream>
 	"ordered_vector.h"
 
-1544850441 c:\users\daniel\cppworkspace\ordered_vector\include\ordered_vector.h
+1544851240 c:\users\daniel\cppworkspace\ordered_vector\include\ordered_vector.h
 	<iostream>
 	<vector>
 	<algorithm>
