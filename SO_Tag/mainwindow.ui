@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>391</width>
+    <height>162</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>391</width>
+    <height>162</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>391</width>
+    <height>162</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>SO Tag</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/icon.ico</normaloff>:/icon.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>2</number>
+    </property>
+    <property name="leftMargin">
+     <number>2</number>
+    </property>
+    <property name="topMargin">
+     <number>2</number>
+    </property>
+    <property name="rightMargin">
+     <number>2</number>
+    </property>
+    <property name="bottomMargin">
+     <number>2</number>
+    </property>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>388</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>391</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="SpecialOrder">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QHBoxLayout" name="NameLayout1">
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Customer name</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="name_input">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>288</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="maxLength">
+             <number>20</number>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="PONumLayout">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>PO Number</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="po_input">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>288</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="maxLength">
+             <number>8</number>
+            </property>
+            <property name="placeholderText">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="DateLayout1">
+          <item>
+           <widget class="QSplitter" name="splitter">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <widget class="QLabel" name="label_3">
+             <property name="maximumSize">
+              <size>
+               <width>70</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Date received</string>
+             </property>
+            </widget>
+            <widget class="QCheckBox" name="today_checkbox">
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Today</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+            <widget class="QDateEdit" name="date_input">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>238</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>238</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="currentSection">
+              <enum>QDateTimeEdit::DaySection</enum>
+             </property>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="StoreOrder">
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <layout class="QHBoxLayout" name="NameLayout2">
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Customer name</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="name_input2">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>288</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="maxLength">
+             <number>20</number>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="OrderNumLayout">
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Order Number</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="order_num">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>288</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="maxLength">
+             <number>8</number>
+            </property>
+            <property name="placeholderText">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="DateLayout2">
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Pick-up Date</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDateEdit" name="pickup_date">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>238</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="ActionButtonsLayout2">
+      <property name="leftMargin">
+       <number>12</number>
+      </property>
+      <property name="rightMargin">
+       <number>12</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QToolButton" name="toolButton">
+        <property name="minimumSize">
+         <size>
+          <width>25</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>25</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Tag type</string>
+        </property>
+        <property name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/menu_icon_big.ico</normaloff>:/menu_icon_big.ico</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>16</width>
+          <height>16</height>
+         </size>
+        </property>
+        <property name="popupMode">
+         <enum>QToolButton::InstantPopup</enum>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>100</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="print_button">
+        <property name="minimumSize">
+         <size>
+          <width>90</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="text">
+         <string>Print</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>391</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuTag_Type">
+    <property name="title">
+     <string>Tag Type</string>
+    </property>
+    <addaction name="menuSpecial_Order"/>
+    <addaction name="menuStore_Order"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionPO_Number_placeholder_text"/>
+    <addaction name="actionStore_Order_Number_Placeholder_Text"/>
+    <addaction name="actionSet_Store_Number"/>
+   </widget>
+   <widget class="QMenu" name="menuOrder_Type">
+    <property name="title">
+     <string>Order Type</string>
+    </property>
+    <addaction name="actionWill_Call"/>
+    <addaction name="actionDelivery_Box"/>
+    <addaction name="actionDelivery_Flat"/>
+    <addaction name="actionBOPIS"/>
+    <addaction name="actionTransfer"/>
+   </widget>
+   <addaction name="menuTag_Type"/>
+   <addaction name="menuSettings"/>
+   <addaction name="menuOrder_Type"/>
+  </widget>
+  <action name="actionSpecial_Order">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/so_tag.ico</normaloff>:/so_tag.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Special Order</string>
+   </property>
+  </action>
+  <action name="actionStore_Order">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/storeorder_tag.ico</normaloff>:/storeorder_tag.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Store Order</string>
+   </property>
+  </action>
+  <action name="menuSpecial_Order">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Special Order</string>
+   </property>
+  </action>
+  <action name="menuStore_Order">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Store Order</string>
+   </property>
+  </action>
+  <action name="actionPO_Number_placeholder_text">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>PO Number Placeholder Text</string>
+   </property>
+  </action>
+  <action name="actionStore_Order_Number_Placeholder_Text">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Store Order Number Placeholder Text</string>
+   </property>
+  </action>
+  <action name="actionDelivery_Box">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Delivery (Box)</string>
+   </property>
+  </action>
+  <action name="actionDelivery_Flat">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Delivery (Flat)</string>
+   </property>
+  </action>
+  <action name="actionWill_Call">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Will Call</string>
+   </property>
+  </action>
+  <action name="actionBOPIS">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>BOPIS</string>
+   </property>
+  </action>
+  <action name="actionTransfer">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Transfer</string>
+   </property>
+  </action>
+  <action name="actionSet_Store_Number">
+   <property name="text">
+    <string>Set Store Number</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>today_checkbox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>date_input</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>260</x>
+     <y>99</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
