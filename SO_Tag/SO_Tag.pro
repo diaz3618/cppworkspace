@@ -22,33 +22,36 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 
+include(Config/config_folder.pri)
+include(Dialogs/dialog_folder.pri)
+
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    md5.cpp \
-    md5_wrapper.cpp \
-    store_order.cpp \
-    special_order.cpp \
-    csv_file.cpp \
-    config.cpp \
-    config_file.cpp \
-    author.cpp
+Config/md5.cpp \
+Config/md5_wrapper.cpp \
+Config/store_order.cpp \
+Config/special_order.cpp \
+Config/csv_file.cpp \
+Config/config.cpp \
+Dialogs/config_file.cpp \
+Dialogs/author.cpp
 
 HEADERS += \
         mainwindow.h \
-    csv_file.h \
-    config.h \
-    config.h \
-    config_file.h \
-    global_variables.h \
-    author.h \
-    md5.h \
-    md5_wrapper.h
+Config/csv_file.h \
+Config/config.h \
+Config/config.h \
+Dialogs/config_file.h \
+Config/global_variables.h \
+Dialogs/author.h \
+Config/md5.h \
+Config/md5_wrapper.h
 
 FORMS += \
         mainwindow.ui \
-    config_file.ui \
-    author.ui
+config_file.ui \
+author.ui
 
 RC_ICONS = icon.ico
 

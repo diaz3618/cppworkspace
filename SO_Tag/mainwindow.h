@@ -6,8 +6,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <config_file.h>
-#include <author.h>
+#include <Dialogs/config_file.h>
+#include <Dialogs/author.h>
 
 #include <Windows.h>
 #include <WinBase.h>
@@ -29,9 +29,9 @@
 #include <QLineEdit>
 
 //#include "csv_file.h"
-#include "md5_wrapper.h"
-#include "global_variables.h"
-#include "config.h"
+#include "Config/md5_wrapper.h"
+#include "Config/global_variables.h"
+#include "Config/config.h"
 
 #define FILENAME "tag.pdf"
 #define VERSION "1.2"   //As of 07/25/2019

@@ -4,7 +4,7 @@
 #include <QDialog>
 #include <QIntValidator>
 #include <QMessageBox>
-#include "config.h"
+#include "Config/config.h"
 
 namespace Ui {
 class Config_File;
