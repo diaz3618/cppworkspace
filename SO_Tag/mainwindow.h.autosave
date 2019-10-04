@@ -74,7 +74,6 @@ private:
     //const tag_map tags = csv::file(CSVFILE).read();   // (UNUSED FOR NOW)
     const QString po_id     = cfg_file->po_number();
     const QString store_id  = "H" + cfg_file->store_number();
-    QString store_order_type;
 
 
 

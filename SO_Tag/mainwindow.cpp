@@ -6,9 +6,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    // Make sure printer.exe is actually printer.exe
+    // Make sure printer.exe is actually printer.exe before anything else (MD5 sum check)
     qDebug() << "MD5: " << QString::fromStdString(md5->getHashFromFile("printer.exe"));
-    if(md5->getHashFromFile("printer.exe") == "1e47ad46ba3bcca1f8f022fcdfa5480b") {
+    if(md5->getHashFromFile("printer.exe") == printer_hash) {
         qDebug() << "IT MATCHES!!";
     } else{ remove("printer.exe"); parent->close();  }
 
@@ -441,6 +441,10 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1)
     }
 }
 
+
+/////////////////////////////
+/// Order type check boxes
+/////////////////////////////
 void MainWindow::on_menuSpecial_Order_triggered(bool checked)
 {
     if(checked){
@@ -455,6 +459,8 @@ void MainWindow::on_menuStore_Order_triggered(bool checked)
     }
 }
 
+
+// Change Store Number (Work in progress)
 void MainWindow::on_actionSet_Store_Number_triggered()
 {
     conf_dialog->setModal(true);
@@ -476,6 +482,10 @@ void MainWindow::on_actionSet_Store_Number_triggered()
     }
 }
 
+
+//////////////////////////////////
+/// Placeholder text check boxes
+//////////////////////////////////
 void MainWindow::on_actionPO_Number_placeholder_text_toggled(bool arg1)
 {
     qDebug() << "STATUS: " << arg1;
@@ -499,4 +509,69 @@ void MainWindow::on_actionStore_Order_Number_Placeholder_Text_toggled(bool arg1)
 void MainWindow::set_default()
 {
     ui->actionStore_Order_Number_Placeholder_Text->setChecked(true);
+}
+
+
+
+//////////////////////////////////
+/// Store Order type check boxes
+//////////////////////////////////
+void MainWindow::on_actionDelivery_Box_toggled(bool arg1)
+{
+    if(arg1){
+        ui->actionTransfer->setChecked(false);
+        ui->actionWill_Call->setChecked(false);
+        ui->actionDelivery_Flat->setChecked(false);
+        ui->actionBOPIS->setChecked(false);
+
+        // Add Order type to PDF File (In Progress)
+    }
+}
+
+void MainWindow::on_actionDelivery_Flat_toggled(bool arg1)
+{
+    if(arg1){
+        ui->actionTransfer->setChecked(false);
+        ui->actionWill_Call->setChecked(false);
+        ui->actionDelivery_Box->setChecked(false);
+        ui->actionBOPIS->setChecked(false);
+
+        // Add Order type to PDF File (In Progress)
+    }
+}
+
+void MainWindow::on_actionWill_Call_toggled(bool arg1)
+{
+    if(arg1){
+        ui->actionTransfer->setChecked(false);
+        ui->actionDelivery_Box->setChecked(false);
+        ui->actionDelivery_Flat->setChecked(false);
+        ui->actionBOPIS->setChecked(false);
+
+        // Add Order type to PDF File (In Progress)
+    }
+}
+
+void MainWindow::on_actionBOPIS_toggled(bool arg1)
+{
+    if(arg1){
+        ui->actionTransfer->setChecked(false);
+        ui->actionDelivery_Box->setChecked(false);
+        ui->actionDelivery_Flat->setChecked(false);
+        ui->actionWill_Call->setChecked(false);
+
+        // Add Order type to PDF File (In Progress)
+    }
+}
+
+void MainWindow::on_actionTransfer_toggled(bool arg1)
+{
+    if(arg1){
+        ui->actionBOPIS->setChecked(false);
+        ui->actionDelivery_Box->setChecked(false);
+        ui->actionDelivery_Flat->setChecked(false);
+        ui->actionWill_Call->setChecked(false);
+
+        // Add Order type to PDF File (In Progress)
+    }
 }
